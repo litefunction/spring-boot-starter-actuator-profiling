@@ -57,6 +57,12 @@ profiling.actuator.enabler=true
 
 Adding Profiling to Methods
 
+add properties
+
+```properties
+management.endpoints.web.exposure.include=actuatorProfilingDetail,actuatorProfiling
+```
+
 To profile a method, simply annotate it with @ActuatorProfiling and optionally provide a name:
 
 ```java
