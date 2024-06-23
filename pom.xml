@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.lite.function</groupId>
+    <groupId>io.github.litefunction</groupId>
     <artifactId>spring-boot-starter-actuator-profiling</artifactId>
     <version>1.0.0</version>
 
@@ -107,16 +107,47 @@
                     <locale>en_US</locale>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.0.0-M1</version>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>3.2.4</version>
+
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -130,14 +161,4 @@
         </plugins>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>your-repo</id>
-            <url>http://repo.example.com/maven2/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>your-snapshot-repo</id>
-            <url>http://repo.example.com/maven2/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
