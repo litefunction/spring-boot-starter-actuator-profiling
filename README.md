@@ -27,6 +27,16 @@ with a custom `@ActuatorProfiling` annotation. The profiling data is exposed thr
 
 ## Getting Started
 
+### Maven dependency
+
+```maven
+<dependency>
+    <groupId>io.github.litefunction</groupId>
+    <artifactId>spring-boot-starter-actuator-profiling</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 ### Prerequisites
 
 - Java 11 or higher
